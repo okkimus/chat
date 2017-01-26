@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navibar">
+    <%= link_to 'rooms', rooms_path %>
+    <%= link_to 'users', users_path %>
+  </div>
 
 <%= yield %>
 

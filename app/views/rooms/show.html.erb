@@ -9,7 +9,7 @@
   <strong>Users online:</strong>
   <%  @room.users.each do |user| %>
     <ul>
-      <li><strong><%= user.name %></strong></li>
+      <li><strong><%= link_to user.name, user %></strong></li>
     </ul>
   <% end %>
 </p>
@@ -22,6 +22,15 @@
     </ul>
   <% end %>
 </p>
+
+<div>
+  <h3>Send a message!</h3>
+
+  <%= form_for(@viesti) do |f| %>
+      text: <%= f.text_field :text %>
+      <%= f.submit %>
+  <% end %>
+</div>
 
 <p>
   <strong>Privacy:</strong>

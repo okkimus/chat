@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :rooms
   resources :users
   resources :messages
+
+  root 'rooms#index'
+  #resources :messages
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
