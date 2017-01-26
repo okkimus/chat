@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @room.name %>
+</p>
+
+<p>
+  <strong>Users online:</strong>
+  <%  @room.users.each do |user| %>
+    <ul>
+      <li><strong><%= user.name %></strong></li>
+    </ul>
+  <% end %>
+</p>
+
+<p>
+  <strong>Messages:</strong>
+  <% @room.messages.each do |message| %>
+    <ul>
+      <li><strong><%= message.user.name %></strong> <%= message.text %></li>
+    </ul>
+  <% end %>
+</p>
+
+<p>
+  <strong>Privacy:</strong>
+  <%= @room.privacy %>
+</p>
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %>
