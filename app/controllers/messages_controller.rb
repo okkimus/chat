@@ -24,11 +24,15 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(message_params)
+    @message = Message.new
+    @message.text = params[:message][:text]
+    @message.room_id = Integer(params[:message][:room_id])
+    @message.user_id = 1
 
+    #@message = Message.new(message_params)
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
+        format.html { redirect_to :back, notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }
@@ -71,4 +75,5 @@ class MessagesController < ApplicationController
     def message_params
       params.require(:message).permit(:text)
     end
+
 end

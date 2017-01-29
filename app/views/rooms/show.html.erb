@@ -26,10 +26,7 @@
 <div>
   <h3>Send a message!</h3>
 
-  <%= form_for(@viesti) do |f| %>
-      text: <%= f.text_field :text %>
-      <%= f.submit %>
-  <% end %>
+  <%= render 'messages/form' %>
 </div>
 
 <p>

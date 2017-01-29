@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate, only:  [:destroy]
 
   # GET /rooms
   # GET /rooms.json
@@ -10,7 +11,8 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
-    @viesti = Message.new
+    @message = Message.new
+
   end
 
   # GET /rooms/new
@@ -71,5 +73,11 @@ class RoomsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
       params.require(:room).permit(:name, :password, :privacy)
+    end
+
+    def authenticate
+      authenticate_or_request_with_http_basic do |username, password|
+        username == "admin" and password == "secret"
+      end
     end
 end
