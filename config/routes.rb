@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :rooms
   resources :users
-  resources :messages
+  resources :messages, only: [:new, :create]
 
   resource :session, only: [:new, :create, :delete]
 

@@ -23,16 +23,19 @@
   <% end %>
 </p>
 
-<div>
-  <h3>Send a message!</h3>
+<% if current_user %>
+  <div>
+    <h3>Send a message:</h3>
 
-  <%= render 'messages/form' %>
-</div>
+    <%= render 'messages/form' %>
+  </div>
 
-<p>
-  <strong>Privacy:</strong>
-  <%= @room.privacy %>
-</p>
+  <p>
+    <strong>Privacy:</strong>
+    <%= @room.privacy %>
+  </p>
+
+<% end %>
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   has_many :chatters
   has_many :rooms, through: :chatters

@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Password</th>
 
       <th>Private</th>
       <th colspan="3"></th>
@@ -16,19 +15,16 @@
   <tbody>
     <% @rooms.each do |room| %>
       <tr>
-        <td><%=  link_to room.name, room %></td>
-        <td><%= room.password %></td>
+        <td><%= room.name %></td>
         <% if room.privacy %>
           <td>Yes</td>
         <% else %>
           <td>No</td>
         <% end %>
-        <% if current_user %>
-            <% if not room.users.ids.include?(current_user.id) %>
-              <td><%= link_to 'Join', room, method: :post %></td>
-            <% end %>
-            <td><%= link_to 'Edit', edit_room_path(room) %></td>
-            <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if not room.users.ids.include?(current_user.id) %>
+          <td><%= link_to 'Join', room, method: :post %></td>
+        <% else %>
+          <td><%= link_to 'Show', room %>
         <% end %>
       </tr>
     <% end %>
