@@ -4,5 +4,9 @@ class User < ActiveRecord::Base
   has_many :chatters
   has_many :rooms, through: :chatters
 
-  validates :name, uniqueness: true
+  has_secure_password
+
+  validates :name, uniqueness: true,
+            length: { minimum: 3 }
+  validates :password, length: { minimum: 5 }
 end

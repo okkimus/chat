@@ -6,13 +6,13 @@ class SessionsController < ApplicationController
   def create
     # get the user from db
     user = User.find_by name: params[:name]
-    if user.nil?
-      redirect_to :back, notice: "User #{params[:name]} does not exist"
-    else
+    if user && user.authenticate(params[:password])
       # save user_id to session
       session[:user_id] = user.id if not user.nil?
       # redirect_to user
       redirect_to user, notice: "Welcome back #{params[:name]}!"
+    else
+      redirect_to :back, notice: "Username and/or password mismatch"
     end
   end
 

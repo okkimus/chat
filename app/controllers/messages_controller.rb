@@ -27,11 +27,10 @@ class MessagesController < ApplicationController
     @message = Message.new
     @message.text = params[:message][:text]
     @message.room_id = Integer(params[:room_id])
-    @message.user_id = 1
 
-    #@message = Message.new(message_params)
     respond_to do |format|
       if @message.save
+        current_user.messages << @message
         format.html { redirect_to :back, notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else

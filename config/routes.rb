@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   delete 'signout', to: 'sessions#destroy'
 
 
+  post 'rooms/:id', to: 'rooms#join'
+
   root 'rooms#index'
   #resources :messages
   # The priority is based upon order of creation: first created -> highest priority.

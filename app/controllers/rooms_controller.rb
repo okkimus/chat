@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :set_room, only: [:show, :edit, :update, :destroy, :join]
   before_action :authenticate, only:  [:destroy]
 
   # GET /rooms
@@ -12,7 +12,6 @@ class RoomsController < ApplicationController
   # GET /rooms/1.json
   def show
     @message = Message.new
-
   end
 
   # GET /rooms/new
@@ -62,6 +61,12 @@ class RoomsController < ApplicationController
       format.html { redirect_to rooms_url, notice: 'Room was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def join
+    @user = User.find(session[:user_id])
+    @room.users << @user
+    redirect_to @room
   end
 
   private
