@@ -3,4 +3,6 @@ class User < ActiveRecord::Base
 
   has_many :chatters
   has_many :rooms, through: :chatters
+
+  validates :name, uniqueness: true
 end

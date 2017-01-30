@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new
     @message.text = params[:message][:text]
-    @message.room_id = Integer(params[:message][:room_id])
+    @message.room_id = Integer(params[:room_id])
     @message.user_id = 1
 
     #@message = Message.new(message_params)

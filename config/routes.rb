@@ -3,6 +3,13 @@ Rails.application.routes.draw do
   resources :users
   resources :messages
 
+  resource :session, only: [:new, :create, :delete]
+
+  get 'signup', to: 'users#new'
+  get 'signin', to: 'sessions#new'
+  delete 'signout', to: 'sessions#destroy'
+
+
   root 'rooms#index'
   #resources :messages
   # The priority is based upon order of creation: first created -> highest priority.
