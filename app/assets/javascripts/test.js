@@ -1,0 +1,1 @@
+$('#test').on('click', function(){alert("Moi")})

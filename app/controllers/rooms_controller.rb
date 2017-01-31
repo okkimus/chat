@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:show, :edit, :update, :destroy, :join]
+  before_action :set_room, only: [:show, :edit, :update, :destroy, :join, :rooms_messages]
   before_action :authenticate, only:  [:destroy]
+  before_action :redirect_if_not_logged, only: [:show, :edit, :update, :join, :new, :create]
 
   # GET /rooms
   # GET /rooms.json
@@ -69,6 +70,11 @@ class RoomsController < ApplicationController
     redirect_to @room
   end
 
+  def rooms_messages
+    @messages = @room.messages
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room
@@ -84,5 +90,9 @@ class RoomsController < ApplicationController
       authenticate_or_request_with_http_basic do |username, password|
         username == "admin" and password == "secret"
       end
+    end
+
+    def redirect_if_not_logged
+      redirect_to rooms_path, notice: 'Signin first!' if not current_user
     end
 end

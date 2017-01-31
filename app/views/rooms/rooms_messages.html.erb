@@ -1,0 +1,5 @@
+<% @room.messages.each do |message| %>
+    <ul>
+      <li><strong><%= message.user.name %></strong> <%= message.text %></li>
+    </ul>
+<% end %>

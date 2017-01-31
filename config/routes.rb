@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :rooms
+  resources :rooms do
+    member do
+      get :rooms_messages
+    end
+  end
   resources :users
   resources :messages, only: [:new, :create]
 
