@@ -17,8 +17,10 @@
         <td><%= link_to user.name, user %></td>
         <td><%= user.password %></td>
         <td>Number of messages: <%= user.messages.count %></td>
-        <% if current_user.id == user.id %>
-          <td><%= link_to 'Edit your profile', edit_user_path(user) %></td>
+        <% if current_user %>
+          <% if current_user.id == user.id %>
+            <td><%= link_to 'Edit your profile', edit_user_path(user) %></td>
+          <% end %>
         <% end %>
       </tr>
     <% end %>

@@ -21,10 +21,12 @@
         <% else %>
           <td>No</td>
         <% end %>
-        <% if not room.users.ids.include?(current_user.id) %>
-          <td><%= link_to 'Join', room, method: :post %></td>
-        <% else %>
-          <td><%= link_to 'Show', room %>
+        <% if current_user %>
+          <% if not room.users.ids.include?(current_user.id) %>
+            <td><%= link_to 'Join', room, method: :post %></td>
+          <% else %>
+            <td><%= link_to 'Show', room %>
+          <% end %>
         <% end %>
       </tr>
     <% end %>
