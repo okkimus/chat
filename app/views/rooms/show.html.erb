@@ -15,18 +15,9 @@
 </p>
 
 
-<div class="chatWindow">
+<div class="chatWindow" data-rooms_id="<%= @room.id %>">
   <ul id="viestit">
   </ul>
-  <!--
-  <p>
-    <strong>Messages:</strong>
-    <% @room.messages.each do |message| %>
-      <ul id="viestit">
-      </ul>
-  <% end %>
-  </p>
-  -->
 </div>
 
 <% if current_user %>
@@ -38,7 +29,9 @@
 
 <% end %>
 
-<button type="button" id="test">Start updating!</button>
-
+<button type="button" id="test">Start updating the chat!</button>
+<p>
+  <em>To stop updating, refresh the page (F5)</em>
+</p>
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>

@@ -5,7 +5,8 @@ var ready = function() {
     });
 
 
-    function updater() { $.getJSON('http://localhost:3000/rooms/1/rooms_messages.json', function (json){
+
+    function updater() { $.getJSON('http://localhost:3000/rooms/' + $('.chatWindow').data('rooms_id') + '/rooms_messages.json', function (json){
             var u = $("#viestit");
             var str = "<ul id='viestit'>";
             for (var i = 0; i < json.length; i++) {
@@ -17,6 +18,8 @@ var ready = function() {
     }
 };
 
+
 $(document).ready(ready);
+
 $(document).on('turbolinks:load', ready);
 
