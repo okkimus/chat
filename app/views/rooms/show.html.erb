@@ -16,14 +16,17 @@
 
 
 <div class="chatWindow">
+  <ul id="viestit">
+  </ul>
+  <!--
   <p>
     <strong>Messages:</strong>
     <% @room.messages.each do |message| %>
-      <ul>
-        <li><strong><%= message.user.name %></strong> <%= message.text %></li>
+      <ul id="viestit">
       </ul>
-    <% end %>
+  <% end %>
   </p>
+  -->
 </div>
 
 <% if current_user %>
@@ -33,12 +36,9 @@
     <%= render 'messages/form' %>
   </div>
 
-  <p>
-    <strong>Privacy:</strong>
-    <%= @room.privacy %>
-  </p>
-
 <% end %>
+
+<button type="button" id="test">Start updating!</button>
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>

@@ -71,7 +71,10 @@ class RoomsController < ApplicationController
   end
 
   def rooms_messages
-    @messages = @room.messages
+    @messages = @room.messages.last(20)
+    #respond_to do |format|
+    #  format.json { render json: @messages, status: :unprocessable_entity }
+    #end
   end
 
 
