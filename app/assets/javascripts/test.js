@@ -6,7 +6,7 @@ var ready = function() {
 
 
 
-    function updater() { $.getJSON('http://localhost:3000/rooms/' + $('.chatWindow').data('rooms_id') + '/rooms_messages.json', function (json){
+    function updater() { $.getJSON('https://tranquil-everglades-55853.herokuapp.com/rooms/' + $('.chatWindow').data('rooms_id') + '/rooms_messages.json', function (json){
             var u = $("#viestit");
             var str = "<ul id='viestit'>";
             for (var i = 0; i < json.length; i++) {
