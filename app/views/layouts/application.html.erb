@@ -7,21 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="navibar">
-    <%= link_to 'rooms', rooms_path %>
-    <%= link_to 'users', users_path %> |
-    <% if current_user %>
-        <%= link_to current_user.name, user_path(session[:user_id]) %>
-        <%= link_to 'signout', signout_path, method: :delete %>
-    <% else %>
-        <%= link_to 'signin', signin_path %>
-        <%= link_to 'signup', signup_path %>
-    <% end %>
+  <div class="container">
+    <div class="navibar sixteen columns">
+      <%= link_to 'rooms', rooms_path %>
+      <%= link_to 'users', users_path %> |
+      <% if current_user %>
+          <%= link_to current_user.name, user_path(session[:user_id]) %>
+          <%= link_to 'signout', signout_path, method: :delete %>
+      <% else %>
+          <%= link_to 'signin', signin_path %>
+          <%= link_to 'signup', signup_path %>
+      <% end %>
+    </div>
+
+    <%= yield %>
   </div>
-
-  <%= yield %>
-
-  <%= insert_paloma_hook %>
 
 </body>
 </html>

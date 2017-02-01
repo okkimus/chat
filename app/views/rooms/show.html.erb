@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @room.name %>
-</p>
+<h1>
+  Room: <%= @room.name %>
+</h1>
 
 <p>
   <strong>Users online:</strong>
@@ -20,18 +19,21 @@
   </ul>
 </div>
 
-<% if current_user %>
-  <div>
-    <h3>Send a message:</h3>
+<div>
+  <% if current_user %>
+    <div>
+      <h3>Send a message:</h3>
 
-    <%= render 'messages/form' %>
-  </div>
+      <%= render 'messages/form' %>
+    </div>
 
-<% end %>
-
-<button type="button" id="test">Start updating the chat!</button>
-<p>
-  <em>To stop updating, refresh the page (F5)</em>
-</p>
+  <% end %>
+</div>
+<div class="">
+  <button type="button" id="test">Start updating the chat!</button>
+  <p>
+    <em>To stop updating, refresh the page (F5)</em>
+  </p>
+</div>
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
