@@ -1,7 +1,9 @@
 == README
 
 Chat is small web chat application you can create users, chat rooms and obviously...chat!
+Deployed version can be found at:
+https://tranquil-everglades-55853.herokuapp.com/
 
-You need to create user and be logged in to create/join rooms. In a chat room press "START UPDATING THE CHAT" to start the script. Updates have slight delay and are made with simple ajax call. To stop updating refresh the page.
+You need to create a user and be logged in to create/join rooms. In a chat room press "START UPDATING THE CHAT" to start the script. Updates have slight delay and are made with simple Ajax call. To stop updating refresh the page.
 
-Chat was created with Ruby on Rails and Javascript. Styling is done using Skeleton framework. Updating is done with Ajax calls which isn't maybe the best way to do it. After doing the project I learned about websockets, which would be much better way to a chat application.
+Chat was created with Ruby on Rails and Javascript. Styling is done using Skeleton framework. Updating is done with Ajax calls which isn't maybe the best way to do it. After doing the project I learned about websockets, which would be much better way to implement a chat application.
