@@ -1,28 +1,7 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Chat is small web chat application you can create users, chat rooms and obviously...chat!
 
-Things you may want to cover:
+You need to create user and be logged in to create/join rooms. In a chat room press "START UPDATING THE CHAT" to start the script. Updates have slight delay and are made with simple ajax call. To stop updating refresh the page.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Chat was created with Ruby on Rails and Javascript. Styling is done using Skeleton framework. Updating is done with Ajax calls which isn't maybe the best way to do it. After doing the project I learned about websockets, which would be much better way to a chat application.

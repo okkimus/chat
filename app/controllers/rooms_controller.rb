@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:show, :edit, :update, :destroy, :join, :rooms_messages]
+  before_action :set_room, only: [:show, :edit, :update, :destroy, :join, :rooms_messages, :authentication]
   before_action :authenticate, only:  [:destroy]
   before_action :redirect_if_not_logged, only: [:show, :edit, :update, :join, :new, :create]
 
@@ -12,7 +12,13 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
+    if @room.privacy
+      render :authentication
+    end
     @message = Message.new
+  end
+
+  def authentication
   end
 
   # GET /rooms/new
@@ -32,7 +38,7 @@ class RoomsController < ApplicationController
     respond_to do |format|
       if @room.save
         format.html { redirect_to @room, notice: 'Room was successfully created.' }
-        format.json { render :show, status: :created, location: @room }
+        format.json { render :show, status: :created, location: @rooms }
       else
         format.html { render :new }
         format.json { render json: @room.errors, status: :unprocessable_entity }
